@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { Navbar } from './components/layout/Navbar';
-import { Footer } from './components/layout/Footer';
-import { ScrollProgress } from './components/layout/ScrollProgress';
 import { LoadingScreen } from './components/layout/LoadingScreen';
+import { ScrollProgress } from './components/layout/ScrollProgress';
 import { CommandPalette } from './components/layout/CommandPalette';
+import { Navbar } from './components/layout/Navbar';
 import { HomePage } from './pages/HomePage';
 import { ProjectDetailPage } from './pages/ProjectDetail';
+import { Footer } from './components/layout/Footer';
 
 function App() {
   return (
@@ -15,12 +14,12 @@ function App() {
       <ScrollProgress />
       <CommandPalette />
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectDetailPage />} />
-        </Routes>
-      </AnimatePresence>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/project/:id" element={<ProjectDetailPage />} />
+      </Routes>
+
       <Footer />
     </>
   );

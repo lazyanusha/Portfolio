@@ -8,9 +8,9 @@ import App from './App';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+     <BrowserRouter basename={import.meta.env.PROD ? '/Portfolio' : '/'}>
+       <App />
+     </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,
 );

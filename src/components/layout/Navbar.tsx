@@ -9,7 +9,10 @@ export function Navbar() {
 	useEffect(() => {
 		const onScroll = () => setScrolled(window.scrollY > 50);
 		window.addEventListener("scroll", onScroll, { passive: true });
-		return () => window.removeEventListener("scroll", onScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		};
 	}, []);
 
 	return (
@@ -22,7 +25,7 @@ export function Navbar() {
 		>
 			<nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 				<a
-					href="/"
+					href="./"
 					className="text-lg font-semibold text-text hover:text-primary-light transition-colors"
 				>
 					{profile.name.split(" ")[0]}
@@ -55,6 +58,7 @@ export function Navbar() {
 						role="img"
 					>
 						<title>{mobileOpen ? "Close menu" : "Open menu"}</title>
+
 						{mobileOpen ? (
 							<path
 								d="M15 5L5 15M5 5l10 10"
@@ -80,6 +84,7 @@ export function Navbar() {
 						initial={{ opacity: 0, height: 0 }}
 						animate={{ opacity: 1, height: "auto" }}
 						exit={{ opacity: 0, height: 0 }}
+						transition={{ duration: 0.2 }}
 						className="md:hidden border-t border-border/50 bg-surface/95 backdrop-blur-xl"
 					>
 						<div className="px-4 py-3 space-y-1">
